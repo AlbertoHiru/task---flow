@@ -5,6 +5,11 @@ import os
 
 DATABASE_NAME = "tareas.db"
 
+def get_connection():
+    conn = sqlite3.connect(DATABASE_NAME)
+    conn.row_factory = sqlite3.Row
+    return conn
+
 
 def crear_tarea(self, tarea: Tarea) -> Tarea:
     conn = get_connection()
