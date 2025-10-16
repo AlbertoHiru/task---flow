@@ -79,4 +79,3 @@ class Tarea:
             'estado': self._estado,
             'proyecto_id': self._proyecto_id
         }
-#holaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
