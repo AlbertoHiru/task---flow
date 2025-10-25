@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV=/home/albertohiru/proyecto-python-prueba/proyecto-python-prueba/venv
+VIRTUAL_ENV=/home/albertohiru/task---flow/venv
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
