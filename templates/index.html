@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>TaskFlow - Tareas Pendientes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>📋 Tareas Pendientes</h1>
+
+        <a href="{{ url_for('crear_tarea_web') }}" class="add-link">➕ Crear Nueva Tarea</a>
+        
+        <ul class="task-list">
+            {% for tarea in tareas %}
+            <li class="task-item">
+                <div class="task-info">
+                    <div class="task-title">
+                        {{ tarea._titulo }} (Prioridad: 
+                        <span class="priority-{{ tarea._prioridad.lower() }}">
+                            {{ tarea._prioridad }}
+                        </span>)
+                    </div>
+                    <small>
+                        Límite: {{ tarea._fecha_limite }} | 
+                        Proyecto ID: {{ tarea._proyecto_id }}
+                    </small>
+                </div>
+                
+                <a href="#" class="action-button">Completar</a>
+            </li>
+            {% else %}
+            <li class="task-item">No tienes tareas pendientes. ¡Hora de crear una!</li>
+            {% endfor %}
+        </ul>
+        
+        <hr>
+        
+        <h2>Proyectos Activos</h2>
+        <ul>
+            {% for proyecto in proyectos %}
+            <li>[{{ proyecto._id }}] {{ proyecto._nombre }} - Estado: {{ proyecto._estado }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

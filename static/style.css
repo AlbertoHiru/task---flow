@@ -1,0 +1,81 @@
+
+/* static/style.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #007bff;
+    text-align: center;
+}
+
+.task-list {
+    list-style: none;
+    padding: 0;
+}
+
+.task-item {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task-info {
+    flex-grow: 1;
+}
+
+.task-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 1.1em;
+}
+
+.priority-high {
+    color: #dc3545; /* Rojo */
+}
+
+.priority-medium {
+    color: #ffc107; /* Amarillo */
+}
+
+.priority-low {
+    color: #28a745; /* Verde */
+}
+
+.action-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+.add-link {
+    display: block;
+    margin: 20px 0;
+    text-align: center;
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+    text-decoration: none;
+}

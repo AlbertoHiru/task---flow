@@ -1,3 +1,4 @@
+
 import sqlite3
 from .modelos import Tarea, Proyecto
 import os
@@ -107,10 +108,10 @@ class DBManager:
                 titulo=fila['titulo'],
                 fecha_limite=fila['fecha_limite'],
                 prioridad=fila['prioridad'],
-                proyecto_id=fila['proyecto_id'],  
+                proyecto_id=fila['proyecto_id'],
                 estado=fila['estado'],
                 descripcion=fila['descripcion'],
-                fecha_creacion=fila['fecha_creacion']
+                fecha_creacion=fila['fecha_creacion'],
                 id=fila['id']
             )
             tareas.append(t)
@@ -139,7 +140,3 @@ if __name__ == '__main__':
 
     tarea_creada = manager.crear_tarea(tarea_prueba)
     print(f"Tarea creada y ID asignado: {tarea_creada.id}")
-
-
-
-#hola amigosssssssssssssssssss
