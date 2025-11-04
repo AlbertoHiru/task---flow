@@ -45,8 +45,13 @@ def crear_tarea_web():
     return render_template('formulario_tarea.html', proyectos=proyectos)
 
 
-if __name__ == 'main':
+@app.route('/completar/<int:tarea_id>')
+def completar_tarea(tarea_id):
+    db_manager.actualizar_tarea_estado(tarea_id, "Completada")
+    return redirect(url_for('index'))
 
-    db_manager.crear_tablas()
-    print("Iniciando servidor")
+if __name__ == '__main__':
+    # Las tablas ya se crean automáticamente en el __init__ de DBManager
+
+    # Corremos Flask
     app.run(debug=True)

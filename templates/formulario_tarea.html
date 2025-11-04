@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear Nueva Tarea</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        /* Estilos específicos para el formulario */
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .submit-button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: #007bff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>➕ Agregar Nueva Tarea</h1>
+
+        <form method="POST" action="{{ url_for('crear_tarea_web') }}">
+            <div class="form-group">
+                <label for="titulo">Título de la Tarea:</label>
+                <input type="text" id="titulo" name="titulo" required>
+            </div>
+
+            <div class="form-group">
+                <label for="descripcion">Descripción:</label>
+                <textarea id="descripcion" name="descripcion"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="fecha_limite">Fecha Límite:</label>
+                <input type="date" id="fecha_limite" name="fecha_limite" required>
+            </div>
+
+            <div class="form-group">
+                <label for="prioridad">Prioridad:</label>
+                <select id="prioridad" name="prioridad" required>
+                    <option value="Baja">Baja</option>
+                    <option value="Media" selected>Media</option>
+                    <option value="Alta">Alta</option>
+                    <option value="Urgente">Urgente</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="proyecto_id">Proyecto:</label>
+                <select id="proyecto_id" name="proyecto_id">
+                    {% for proyecto in proyectos %}
+                        <option value="{{ proyecto._id }}">{{ proyecto._nombre }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <button type="submit" class="submit-button">Guardar Tarea</button>
+        </form>
+        
+        <a href="{{ url_for('index') }}" class="back-link">← Volver al listado</a>
+    </div>
+</body>
+</html>
